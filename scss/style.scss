@@ -249,6 +249,10 @@ body{
   &__title{
     margin-bottom: 15px;
   }
+  &__button{
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 .person-card{
     display: grid;
@@ -376,6 +380,13 @@ body{
     z-index: 5;
     &:hover{
       cursor: pointer;
+    }
+    &:focus{
+      outline: 0;
+    }
+    &active {
+      outline: none;
+      border: none;
     }
   }
   &_prev{

@@ -272,6 +272,10 @@ body {
 .description__title {
   margin-bottom: 15px;
 }
+.description__button {
+  display: inline-block;
+  vertical-align: top;
+}
 
 .person-card {
   display: grid;
@@ -409,6 +413,13 @@ body {
 }
 .gallery__swiper-button:hover {
   cursor: pointer;
+}
+.gallery__swiper-button:focus {
+  outline: 0;
+}
+.gallery__swiper-buttonactive {
+  outline: none;
+  border: none;
 }
 .gallery_prev {
   left: 0;
