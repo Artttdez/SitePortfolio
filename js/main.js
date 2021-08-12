@@ -59,10 +59,9 @@ const GallerySwiper = new Swiper('.swiper-container', {
 };
 
 
-
 //marking visited works
 function markAsVisited(name){
-  sessionStorage.setItem(name,'visited');
+  localStorage.setItem(name,'visited');
 }
 
 //array with information about works
@@ -74,28 +73,33 @@ const WorksInfo = [
   {id: 'zvezda_1819', title: 'ФК "Звезда" Сезон 18/19', subtitle: 'Оформление медиасетей футбольного клуба'},
   {id: 'zvezda_1819_2.0', title: 'ФК "Звезда" Сезон 18/19 2.0', subtitle: 'Фирменный стиль футбольного клуба'},
   {id: 'ural_cup', title: 'Кубок Урала 2018', subtitle: 'Оформление киберспортивного фестиваля'},
-  {id: 'dimontello', title: 'Dimontello', subtitle: 'Логотип киберспортсмена'},
-  {id: 'afangess', title: 'Afangess', subtitle: 'Оформление медиасетей киберспортсмена'},
-  {id: 'acrid', title: 'Acrid', subtitle: 'Логотип киберспортсмена'},
-  {id: 'quenta', title: 'Quenta', subtitle: 'Логотип объединения квестов'},
-  {id: 'demise', title: 'Demise', subtitle: 'Логотип киберспортивной команды'},
-  {id: 'dikiy_zapad', title: 'Дикий запад', subtitle: 'Логотип парка активного отдыха'},
-  {id: 'cyberfootball_perm', title: 'Федерация киберфутбола', subtitle: 'Логотип киберспортивной организации'},
-  {id: 'station_konechnaya', title: 'Станция Конечная Спартак-Москва', subtitle: 'Концепт освещения новостей клуба'},
-  {id: 'rostra_piter', title: 'Ростра Питер', subtitle: 'Сайт строительной компании'},
 ];
 
 
 //storing work visiting marks
 WorksInfo.forEach(workInfo => {
-  if (sessionStorage.getItem(workInfo.id) === undefined) {
-    sessionStorage.setItem(workInfo.id, "unvisited");
+  if (localStorage.getItem(workInfo.id) === undefined) {
+    localStorage.setItem(workInfo.id, "unvisited");
   }
 })
 
+//checking for visiting marks reset
+function tryResetVisitingMarks() {
+  for (let i in WorksInfo) {
+    if (localStorage.getItem(WorksInfo[i].id) !== "visited")
+      return;
+  }
+  WorksInfo.forEach(workInfo => {
+    localStorage.setItem(workInfo.id, "unvisited");
+  })
+}
+
+tryResetVisitingMarks();
+
+
 //creating an "other works" list
 function createOtherWorksList() {
-  let works = {...sessionStorage}
+  let works = {...localStorage}
   let otherWorks = [];
   let worksVisited = [];
   let size = 3;
