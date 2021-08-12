@@ -62,8 +62,7 @@ const GallerySwiper = new Swiper('.swiper-container', {
 
 //marking visited works
 function markAsVisited(name){
-  alert(ss);
-  localStorage.setItem(name,'visited');
+  sessionStorage.setItem(name,'visited');
 }
 
 //array with information about works
@@ -89,24 +88,21 @@ const WorksInfo = [
 
 //storing work visiting marks
 WorksInfo.forEach(workInfo => {
-  if (localStorage.getItem(workInfo.id) === undefined) {
-    localStorage.setItem(workInfo.id, "unvisited");
+  if (sessionStorage.getItem(workInfo.id) === undefined) {
+    sessionStorage.setItem(workInfo.id, "unvisited");
   }
 })
 
 //creating an "other works" list
 function createOtherWorksList() {
-  let works = {...localStorage}
+  let works = {...sessionStorage}
   let otherWorks = [];
   let worksVisited = [];
   let size = 3;
   for (let i in WorksInfo){
-    if (works[WorksInfo[i].id] !== 'visited') {
-      otherWorks.push(WorksInfo[i])
-    }
-    else{
-      worksVisited.push(i);
-    }
+    works[WorksInfo[i].id] !== 'visited'
+      ? otherWorks.push(WorksInfo[i])
+      : worksVisited.push(WorksInfo[i]);
     if (otherWorks.length === size){
       return otherWorks;
     }
@@ -126,7 +122,7 @@ function addOtherWorksElements() {
   if (otherWorksRow != null){
     elements.forEach(element => {
       document.getElementById('otherWorksRow').innerHTML +=
-      `<a class="work-card fade-animation work-design" href="${element.id + ".html"}" onclick="markAsVisited(${element.id})">
+      `<a class="work-card fade-animation work-design" href="${element.id + ".html"}" onclick="markAsVisited('${element.id}')">
         <div class="work-card__image" style="background: url(${ 'img/works/previews/' + element.id + '.png'}) center/cover no-repeat"></div>
         <div class="work-card__text">
             <div class="work-card__title work-card_animated-short">${element.title}</div>
