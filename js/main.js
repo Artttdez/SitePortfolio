@@ -73,6 +73,15 @@ const WorksInfo = [
   {id: 'zvezda_1819', title: 'ФК "Звезда" Сезон 18/19', subtitle: 'Оформление медиасетей футбольного клуба'},
   {id: 'zvezda_1819_2.0', title: 'ФК "Звезда" Сезон 18/19 2.0', subtitle: 'Фирменный стиль футбольного клуба'},
   {id: 'ural_cup', title: 'Кубок Урала 2018', subtitle: 'Оформление киберспортивного фестиваля'},
+  {id: 'dimontello', title: 'Dimontello', subtitle: 'Логотип киберспортсмена'},
+  {id: 'afangess', title: 'Afangess', subtitle: 'Оформление медиасетей киберспортсмена'},
+  {id: 'acrid', title: 'Acrid', subtitle: 'Логотип киберспортсмена'},
+  {id: 'quenta', title: 'Quenta', subtitle: 'Логотип объединения квестов'},
+  {id: 'demise', title: 'Demise', subtitle: 'Логотип киберспортивной команды'},
+  {id: 'dikiy_zapad', title: 'Дикий запад', subtitle: 'Логотип парка активного отдыха'},
+  {id: 'cyberfootball_perm', title: 'Федерация киберфутбола', subtitle: 'Логотип киберспортивной организации'},
+  {id: 'station_konechnaya', title: 'Станция Конечная Спартак-Москва', subtitle: 'Концепт освещения новостей клуба'},
+  {id: 'rostra_piter', title: 'Ростра Питер', subtitle: 'Сайт строительной компании'},
 ];
 
 
